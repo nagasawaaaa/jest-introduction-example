@@ -1,0 +1,17 @@
+# Ignore artifacts:
+out
+public
+node_modules
+.next
+.husky
+*.html
+.eslintrc.json
+.prettierrc.mjs
+.prettierignore
+next-env.d.ts
+*.config.js
+*.config.mjs
+tsconfig.json
+package-lock.json
+package.json
+

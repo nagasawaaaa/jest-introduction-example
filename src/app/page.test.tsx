@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
-import Home from '@/app/page';
+import { HomePresentation } from '@/app/page';
 
 describe('Home Render', () => {
-  test('ホーム画面に Hello Jest!! というテキストが存在する', () => {
-    const { getByRole } = render(<Home />);
-    getByRole('heading', { name: 'Hello Jest!!' });
+  test('<HomePresentation /> の message にテキストを渡せる', () => {
+    const { getByRole } = render(<HomePresentation message="Hello Jest!!" />);
+    expect(getByRole('heading', { name: 'Hello Jest!!' })).toBeInTheDocument();
   });
 });

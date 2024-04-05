@@ -10,11 +10,15 @@ export function TodoPresentation({ todos }: Props) {
   return (
     <div className="space-y-4">
       <h1 className="font-bold text-2xl">Todo List</h1>
-      <ul className="space-y-2 list-disc list-inside">
-        {todos.map(todo => (
-          <li key={todo.id}>{todo.title}</li>
-        ))}
-      </ul>
+      {todos.length > 0 ? (
+        <ul className="space-y-2 list-disc list-inside">
+          {todos.map(todo => (
+            <li key={todo.id}>{todo.title}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>Todoはありません</p>
+      )}
       <div>
         <Link className="underline hover:no-underline" href="/">Go to Home</Link>
       </div>

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { HomePresentation } from './page';
+import { HomePresentation } from '@/app/page';
 
 describe('Home Render', () => {
   test('<HomePresentation /> の message にテキストを渡せる', () => {

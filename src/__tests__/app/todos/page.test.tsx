@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import type { Todo } from '@/types';
 
-import { TodoPresentation } from './page';
+import { TodoPresentation } from '@/app/todos/page';
 
 describe('Todo一覧ページのテスト', () => {
   test('Todo一覧ページが表示されること', () => {

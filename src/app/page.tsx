@@ -1,22 +1,5 @@
-import Link from "next/link";
+import HomePresentation from "./_components/HomePresentation";
 
-interface Props {
-  message: string;
-}
-
-export function HomePresentation({ message }: Props) {
-  return (
-    <div className="space-y-4">
-      <h1 className="font-bold text-2xl">{message}</h1>
-      <div>
-        <Link href="/todos" className="underline hover:no-underline">Go to Todo List</Link>
-      </div>
-    </div>
-  )
-}
-
-export async function Home() {
+export default async function Home() {
   return <HomePresentation message="Hello Jest!!" />;
 }
-
-export default Home;

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 interface Props {
   message: string;
@@ -7,12 +7,14 @@ interface Props {
 export function HomePresentation({ message }: Props) {
   return (
     <div className="space-y-4">
-      <h1 className="font-bold text-2xl">{message}</h1>
+      <h1 className="text-2xl font-bold">{message}</h1>
       <div>
-        <Link href="/todos" className="underline hover:no-underline">Go to Todo List</Link>
+        <Link href="/todos" className="underline hover:no-underline">
+          Go to Todo List
+        </Link>
       </div>
     </div>
-  )
+  );
 }
 
 export default HomePresentation;

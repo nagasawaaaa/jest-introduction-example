@@ -1,5 +1,5 @@
 import { Todo } from '@/types';
-import { apiEndpoint } from "@/constants/apiEndpoint";
+import { apiEndpoint } from '@/constants/apiEndpoint';
 
 export default async function getTodoList(): Promise<Todo[]> {
   const response = await fetch(`${apiEndpoint}/todos`);

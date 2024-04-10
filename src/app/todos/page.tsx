@@ -1,6 +1,6 @@
-import getTodoList from "@/services/todos/getTodoList";
+import getTodoList from '@/services/todos/getTodoList';
 
-import TodoPresentation from "@/app/todos/_components/TodoPresentation";
+import TodoPresentation from '@/app/todos/_components/TodoPresentation';
 
 export default async function Todo() {
   const todos = await getTodoList();

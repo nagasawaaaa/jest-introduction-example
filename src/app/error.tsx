@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Error({
   error,
@@ -19,8 +19,9 @@ export default function Error({
     <div>
       <h2>エラーが発生しました。ホーム画面にお戻りください。</h2>
       <div>
-        <Link className="underline hover:no-underline" href="/">Go to
-          Home</Link>
+        <Link className="underline hover:no-underline" href="/">
+          Go to Home
+        </Link>
       </div>
     </div>
   );

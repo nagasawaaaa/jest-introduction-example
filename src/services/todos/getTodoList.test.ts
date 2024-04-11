@@ -13,7 +13,6 @@ describe('getTodoList', () => {
       },
     ]);
     const result = await getTodoList();
-    // Assert
     expect(result).toEqual([
       {
         userId: 1,

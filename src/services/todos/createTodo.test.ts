@@ -9,12 +9,12 @@ const input = {
 
 describe('createTodo', () => {
   test('正常にTodoが作成される', async () => {
-    (createTodo as jest.Mock).mockImplementation(async () => ({
+    (createTodo as jest.Mock).mockResolvedValue({
       title: 'title',
       id: 1,
       userId: 1,
       completed: false,
-    }));
+    });
     const todo = await createTodo({
       ...input,
     });

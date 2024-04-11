@@ -4,7 +4,7 @@ jest.mock('./getTodoList');
 
 describe('getTodoList', () => {
   test('todo一覧を取得できる', async () => {
-    (getTodoList as jest.Mock).mockImplementation(async () => [
+    (getTodoList as jest.Mock).mockResolvedValue([
       {
         userId: 1,
         id: 1,

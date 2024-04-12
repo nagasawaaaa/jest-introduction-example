@@ -1,17 +1,18 @@
 import getTodoList from './getTodoList';
 
-jest.mock('./getTodoList');
-
 describe('getTodoList', () => {
   test('todo一覧を取得できる', async () => {
-    (getTodoList as jest.Mock).mockResolvedValue([
-      {
-        userId: 1,
-        id: 1,
-        title: 'delectus aut autem',
-        completed: false,
-      },
-    ]);
+    global.fetch = jest.fn().mockResolvedValueOnce({
+      ok: true,
+      json: async () => [
+        {
+          userId: 1,
+          id: 1,
+          title: 'delectus aut autem',
+          completed: false,
+        },
+      ],
+    } as Response);
     const result = await getTodoList();
     expect(result).toEqual([
       {
@@ -23,8 +24,11 @@ describe('getTodoList', () => {
     ]);
   });
   test('通信が失敗した場合はエラーを投げる', async () => {
+    global.fetch = jest.fn().mockResolvedValueOnce({
+      ok: false,
+      json: async () => [],
+    } as Response);
     expect.assertions(1);
-    (getTodoList as jest.Mock).mockRejectedValue(new Error('Failed to fetch'));
     try {
       await getTodoList();
     } catch (error) {

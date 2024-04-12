@@ -1,7 +1,5 @@
 import createTodo from './createTodo';
 
-jest.mock('./createTodo');
-
 const input = {
   userId: 1,
   title: 'title',
@@ -9,12 +7,15 @@ const input = {
 
 describe('createTodo', () => {
   test('正常にTodoが作成される', async () => {
-    (createTodo as jest.Mock).mockResolvedValue({
-      title: 'title',
-      id: 1,
-      userId: 1,
-      completed: false,
-    });
+    global.fetch = jest.fn().mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({
+        userId: 1,
+        id: 1,
+        title: 'title',
+        completed: false,
+      }),
+    } as Response);
     const todo = await createTodo({
       ...input,
     });
@@ -27,7 +28,10 @@ describe('createTodo', () => {
   });
   test('通信が失敗した場合はエラーを投げる', async () => {
     expect.assertions(1);
-    (createTodo as jest.Mock).mockRejectedValue(new Error('Failed to fetch'));
+    global.fetch = jest.fn().mockResolvedValueOnce({
+      ok: false,
+      json: async () => ({}),
+    } as Response);
     try {
       await createTodo({
         ...input,

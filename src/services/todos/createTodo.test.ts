@@ -6,7 +6,7 @@ const input = {
 };
 
 describe('createTodo', () => {
-  test('正常にTodoが作成される', async () => {
+  test('正常にTodoが作成されたら、作成したTodoを返す', async () => {
     global.fetch = jest.fn().mockResolvedValueOnce({
       ok: true,
       json: async () => ({

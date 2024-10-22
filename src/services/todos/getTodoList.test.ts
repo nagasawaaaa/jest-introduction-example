@@ -28,11 +28,6 @@ describe('getTodoList', () => {
       ok: false,
       json: async () => [],
     } as Response);
-    expect.assertions(1);
-    try {
-      await getTodoList();
-    } catch (error) {
-      expect(error).toEqual(new Error('Failed to fetch'));
-    }
+    await expect(getTodoList()).rejects.toThrow('Failed to fetch');
   });
 });

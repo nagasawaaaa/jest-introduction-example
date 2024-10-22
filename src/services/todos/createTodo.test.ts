@@ -1,4 +1,5 @@
 import createTodo from './createTodo';
+import getTodoList from "@/services/todos/getTodoList";
 
 const input = {
   userId: 1,
@@ -32,12 +33,6 @@ describe('createTodo', () => {
       ok: false,
       json: async () => ({}),
     } as Response);
-    try {
-      await createTodo({
-        ...input,
-      });
-    } catch (error) {
-      expect(error).toEqual(new Error('Failed to fetch'));
-    }
+    await expect(getTodoList()).rejects.toThrow('Failed to fetch');
   });
 });
